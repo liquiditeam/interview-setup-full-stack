@@ -1,0 +1,48 @@
+type Asteroid {
+  id: ID!
+  location: String!
+  minedAt: DateTime!
+  name: String!
+  parkedStarShip: Starship
+  resources: [Resource!]!
+}
+
+type AsteroidAndStarship {
+  asteroid: Asteroid!
+  starship: Starship!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+type Mutation {
+  mineAsteroid(asteroidId: ID!, starshipId: ID!): AsteroidAndStarship!
+}
+
+type Query {
+  asteroid(id: ID!): Asteroid
+  asteroids: [Asteroid!]!
+  resource(id: ID!): Resource!
+}
+
+type Resource {
+  amount: Int!
+  id: ID!
+  resourceType: ResourceType!
+}
+
+enum ResourceType {
+  GOLD
+  HELIUM
+  IRON
+}
+
+type Starship {
+  id: ID!
+  name: String!
+  owner: String!
+  parkedOn: Asteroid
+  resources: [Resource!]!
+}

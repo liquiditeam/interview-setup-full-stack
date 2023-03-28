@@ -1,0 +1,7 @@
+type Starship {
+  id: ID!
+  name: String!
+  owner: String!
+  resources: [Resource!]!
+  parkedOn: Asteroid
+}

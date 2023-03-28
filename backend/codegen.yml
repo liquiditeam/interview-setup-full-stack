@@ -1,0 +1,20 @@
+overwrite: true
+schema: ./schema/*.gql
+hooks:
+  afterAllFileWrite:
+    - yarn prettier --write
+generates:
+  # generate schema to make debugging easier
+  schema.gql:
+    plugins:
+      - 'schema-ast'
+  src/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+    config:
+      allowParentTypeOverride: true
+      enumsAsTypes: true
+      contextType: '../utils/context#Context'
+      defaultMapper: 'Partial<{T}>'
+      showUnusedMappers: true

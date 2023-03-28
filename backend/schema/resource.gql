@@ -1,0 +1,15 @@
+type Resource {
+  id: ID!
+  amount: Int!
+  resourceType: ResourceType!
+}
+
+enum ResourceType {
+  GOLD
+  HELIUM
+  IRON
+}
+
+extend type Query {
+  resource(id: ID!): Resource!
+}

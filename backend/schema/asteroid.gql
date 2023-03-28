@@ -1,0 +1,22 @@
+type Asteroid {
+  id: ID!
+  name: String!
+  location: String!
+  resources: [Resource!]!
+  minedAt: DateTime!
+  parkedStarShip: Starship
+}
+
+type AsteroidAndStarship {
+  asteroid: Asteroid!
+  starship: Starship!
+}
+
+extend type Query {
+  asteroid(id: ID!): Asteroid
+  asteroids: [Asteroid!]!
+}
+
+extend type Mutation {
+  mineAsteroid(asteroidId: ID!, starshipId: ID!): AsteroidAndStarship!
+}

@@ -3,9 +3,10 @@ version: '3'
 services:
   db:
     image: postgres:13
-    restart: always
+    restart: on-failure
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=interview
+      - POSTGRES_PASSWORD=interview
+      - POSTGRES_DATABASE=interview
     ports:
       - 5432:5432
