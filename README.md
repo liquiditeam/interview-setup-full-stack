@@ -1,5 +1,10 @@
 # Interview
 
+## Requirements
+
+- [dbmate](https://github.com/amacneil/dbmate)
+- dotenv
+
 ## Backend Tasks
 
 - write migrations
@@ -24,19 +29,29 @@
       - resources from asteroid to starship
       - set minedAt
 
-## Bonus
+### Hints regarding the setup
+
+- zapatos is used for typesafe database access https://jawj.github.io/zapatos/
+
+- copy `.env.sample` to `.env`
+
+- `yarn dev` to start the server and codegen
+- `yarn migrate` to run migrations
+- `yarn zapatos` to generate types for zapatos
+
+### Bonus
 
 - Do you know what loaders are? Write a loader that resolves resources for asteroids / starships
 
 ## Frontend Tasks
 
 - setup
-  
-    - typescript
-    - react
-    - vite or next
-    - graphql client
-    - any UI library (CSS library or component library)
+
+  - typescript
+  - react
+  - vite or next
+  - graphql client
+  - any UI library (CSS library or component library)
 
 - home page
 
